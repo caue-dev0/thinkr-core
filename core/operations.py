@@ -123,3 +123,37 @@ def move_right(state: EditorState) -> EditorState:
         )
 
     return state
+
+def move_up(state: EditorState) -> EditorState:
+    lines = state.lines
+    line = state.line
+    col = state.col
+
+    if line == 0:
+        return state
+    
+    new_line = line - 1
+    new_col = min(col, len(lines[new_line]))
+
+    return EditorState(
+        lines=lines,
+        line=new_line,
+        col=new_col
+    )
+
+def move_down(state: EditorState) -> EditorState:
+    lines = state.lines
+    line = state.line
+    col = state.col
+
+    if line >= len(lines) - 1:
+        return state
+    
+    new_line = line + 1
+    new_col = min(col, len(lines[new_line]))
+
+    return EditorState(
+        lines=lines,
+        line=new_line,
+        col=new_col
+    )
