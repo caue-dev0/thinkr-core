@@ -33,3 +33,9 @@ class Home(Action):
 
 class End(Action):
     pass
+
+class Undo(Action):
+    pass
+
+class Redo(Action):
+    pass

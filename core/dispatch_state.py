@@ -2,7 +2,7 @@ from core.state import EditorState
 from core.actions import *
 from core import operations as ops
 
-def dispatch(state: EditorState, action: Action) -> EditorState:
+def dispatch_state(state: EditorState, action: Action) -> EditorState:
     match action:
         case Insert(value=value):
             return ops.insert_text(state, value)
